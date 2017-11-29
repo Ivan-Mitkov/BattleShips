@@ -16,6 +16,14 @@ public class BattleShipsGame {
             Grid.printGrid();
         }
 
+        while(counterMyShips>0&&ComputerMoves.counterComputerShips>0){
+            ComputerMoves.computerMove();
+            Grid.printGrid();
+            System.out.println("counterMyShips "+counterMyShips);
+            System.out.println("ComputerShips "+ComputerMoves.counterComputerShips);
+        }
+
+
     }
 
 

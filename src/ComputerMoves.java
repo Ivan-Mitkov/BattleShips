@@ -11,16 +11,17 @@ public class ComputerMoves {
 
     public static void checkComputerShips() {
 
-        int[] coor =createRandomCoordinates();
-        int x=coor[0];
+        int[] coor = createRandomCoordinates();
+        int x = coor[0];
         int y = coor[1];
-        if (CheckUtil.noGoodMove(x,y)) {
-           return;
+        if (CheckUtil.noGoodMove(x, y)) {
+            return;
         } else {
-            Grid.sea[x+1][y+1] = GameSymbols.computerShips;
+            Grid.sea[x + 1][y + 1] = GameSymbols.computerShips;
             counterComputerShips++;
         }
     }
+
     public static int[] createRandomCoordinates(){
         int minX=0;
         int maxX=Grid.getRow();
@@ -40,7 +41,7 @@ public class ComputerMoves {
         int[] coor =createRandomCoordinates();
         int x=coor[0]+1;
         int y = coor[1]+1;
-        if(CheckUtil.noGoodMove(x,y)){
+        if(CheckUtil.noGoodMoveInBattle(x,y)){
             return;
         }
 
@@ -53,6 +54,9 @@ public class ComputerMoves {
         }
         if(CheckUtil.computerHit(x,y)){
             System.out.println(GameSymbols.computerHit);
+        }
+        if(CheckUtil.computerHitHisShip(x,y)){
+            System.out.println(GameSymbols.computerHitHisOwn);
         }
     }
 }
