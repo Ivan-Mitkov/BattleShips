@@ -13,12 +13,13 @@ public class BattleShipsGame {
         }
         ComputerMoves.placeComputer();
         if(counterMyShips==5&&ComputerMoves.counterComputerShips==5){
-            Grid.printGrid();
+            Grid.printGridInBattle();
         }
 
         while(counterMyShips>0&&ComputerMoves.counterComputerShips>0){
             ComputerMoves.computerMove();
-            Grid.printGrid();
+            placeMyHits();
+            Grid.printGridInBattle();
             System.out.println("counterMyShips "+counterMyShips);
             System.out.println("ComputerShips "+ComputerMoves.counterComputerShips);
         }
@@ -42,5 +43,29 @@ public class BattleShipsGame {
             Grid.sea[x+1][y+1] = GameSymbols.myShips;
             counterMyShips++;
         }
+    }
+    public static void placeMyHits() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter X coordinate for your  hit: ");
+        int x = input.nextInt();
+        System.out.print("Enter Y coordinate for your hit: ");
+        int y = input.nextInt();
+
+        if (CheckUtil.noGoodMyMoveInBattle(x, y)) {
+            System.out.println("Please choose different coordinates");
+            placeMyHits();
+        }
+        if(CheckUtil.hit(x,y)){
+            System.out.println(GameSymbols.showHit);
+
+        }
+        if(CheckUtil.miss(x,y)){
+            System.out.println(GameSymbols.missMessage);
+        }
+        if(CheckUtil.myShipHit(x,y)){
+            System.out.println(GameSymbols.sunkOwnShip);
+        }
+
     }
 }

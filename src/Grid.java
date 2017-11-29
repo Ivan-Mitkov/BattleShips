@@ -52,10 +52,24 @@ public class Grid {
 
 
     }
-    public static void printGrid(){
+    protected static void printGrid(){
         for(int i=0; i<row;i++){
             for(int j=0; j<col;j++){
                 System.out.print(sea[i][j]);
+            }
+            System.out.println();
+        }
+    }
+    protected static void printGridInBattle(){
+        for(int i=0; i<row;i++){
+            for(int j=0; j<col;j++){
+                if(sea[i][j].equals(GameSymbols.computerMiss)||
+                        sea[i][j].equals(GameSymbols.computerShips)){
+                    System.out.print(" ");
+                }
+                else {
+                    System.out.print(sea[i][j]);
+                }
             }
             System.out.println();
         }

@@ -19,6 +19,7 @@ public class ComputerMoves {
         } else {
             Grid.sea[x + 1][y + 1] = GameSymbols.computerShips;
             counterComputerShips++;
+            System.out.println(GameSymbols.messageComputerDeploy);
         }
     }
 
