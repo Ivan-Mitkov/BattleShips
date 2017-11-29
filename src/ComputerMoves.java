@@ -23,10 +23,10 @@ public class ComputerMoves {
     }
 
     public static int[] createRandomCoordinates(){
-        int minX=0;
+        int minX=-1;
         int maxX=Grid.getRow();
 
-        int minY=0;
+        int minY=-1;
         int maxY=Grid.getCol();
 
         int randomNumX = ThreadLocalRandom.current().nextInt(minX, maxX -2);
