@@ -1,6 +1,15 @@
 
 public class Grid {
     public static int row = 12;
+
+    public static int getRow() {
+        return row;
+    }
+
+    public static int getCol() {
+        return col;
+    }
+
     public static int col =12;
     static int round=0;
     static String [][] sea=new String[row][col];
@@ -39,7 +48,7 @@ public class Grid {
 
             }
         }
-        //printGrid();
+        printGrid();
 
 
     }

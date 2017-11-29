@@ -11,17 +11,14 @@ public class BattleShipsGame {
             placeMyShips();
             System.out.println(counterMyShips);
         }
-        if(counterMyShips==5){
+        ComputerMoves.placeComputer();
+        if(counterMyShips==5&&ComputerMoves.counterComputerShips==5){
             Grid.printGrid();
         }
 
     }
 
-    public static boolean noGoodMove(int x, int y) {
-        if (x >= Grid.row || x < 0 || y >= Grid.col || y < 0) return true;
-        if (!Grid.sea[x+1][y+1].equals(" ")) return true;
-        return false;
-    }
+
 
     public static void placeMyShips() {
         Scanner input = new Scanner(System.in);
@@ -31,10 +28,10 @@ public class BattleShipsGame {
         System.out.print("Enter Y coordinate for your  "+(counterMyShips+1)+" ship: ");
         int y = input.nextInt();
 
-        if (noGoodMove(x, y)) {
+        if (CheckUtil.noGoodMove(x, y)) {
             System.out.println("Please choose different coordinates");
         } else {
-            Grid.sea[x+1][y+1] = "@";
+            Grid.sea[x+1][y+1] = GameSymbols.myShips;
             counterMyShips++;
         }
     }
